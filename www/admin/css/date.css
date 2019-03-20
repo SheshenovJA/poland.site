@@ -1,0 +1,13 @@
+.form-control[disabled], fieldset[disabled] .form-control {
+     background: white;
+     opacity: 1;
+     box-shadow: none;
+     border: none;
+}
+
+.unused {
+    background-color: #e2e7eb;
+}
+.unused input {
+    background-color: #e2e7eb!important;
+}

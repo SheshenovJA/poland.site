@@ -1,0 +1,41 @@
+.carousel{
+  .flickity-prev-next-button{
+    height: 60px;
+    width: 60px;
+    border: 2px solid var(--orange);
+    background: transparent;
+    svg{
+      fill: var(--orange);
+    }
+    &.next{
+      right: -70px;
+    }
+    &.previous{
+      left: -70px;
+    }
+  }
+  .flickity-page-dots{
+    bottom: -50px;
+
+  }
+  .dot{
+    border: 1px solid var(--orange);
+    width: 18px;
+    height: 18px;
+    background: transparent;
+    opacity: 1;
+    &.is-selected{
+      position: relative;
+      &:before{
+        content: '';
+        background: var(--orange);
+        height: 12px;
+        width: 12px;
+        position: absolute;
+        border-radius: 50%;
+        left: 2px;
+        top: 2px;
+      }
+    }
+  }
+}

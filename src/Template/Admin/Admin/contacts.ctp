@@ -1,6 +1,6 @@
 <?= $this->element('breadcrumb',
-    ['crumbs' => ['dashboard' => 'Панель'],
-        'active' => 'Налаштування контактів']) ?>
+    ['crumbs' => ['dashboard' => 'Dashboard'],
+        'active' => 'Contacts options']) ?>
 <section id="widget-grid" id="wid-id-0" class="">
     <article class="col-sm-12 col-md-12 col-lg-12 sortable-grid ui-sortable">
 
@@ -41,18 +41,11 @@
                     <form action="/admin/contacts" method="post" class="smart-form">
                         <input type="hidden" name="_csrfToken" value="<?= $this->request->getParam('_csrfToken'); ?>">
                         <header>
-                            Налаштування контактних даних для <strong><?= DOMAIN ?></strong>
+                            Contacts options <strong><?= DOMAIN ?></strong>
                         </header>
 
                         <fieldset>
-                            <section>
-                                <label class="label">  Адресa: </label>
-                                <label class="input">
-                                    <input type="text" name="contact_location" value="<?= (!empty($config['contact_location']) ? $config['contact_location'] : '')?>">
-                                </label>
-                            </section>
-
-
+                      
 
                             <section>
                                 <label class="label">Email: </label>
@@ -76,16 +69,10 @@
                                 </label>
                             </section>
 
-                            <section>
-                                <label class="label">  Телефон 3: </label>
-                                <label class="input">
-                                    <input type="text" name="contact_phone_th" value="<?= (!empty($config['contact_phone_th']) ? $config['contact_phone_th'] : '')?>">
-                                </label>
-                            </section>
 
                         </fieldset>
                         <header>
-                            Налаштування соціальних мереж
+                            Social networks
                         </header>
 
                         <fieldset>
@@ -93,20 +80,6 @@
                                 <label class="label">  Facebook: </label>
                                 <label class="input">
                                     <input type="text" name="contact_social_fb" value="<?= (!empty($config['contact_social_fb']) ? $config['contact_social_fb'] : '')?>">
-                                </label>
-                            </section>
-
-                            <section>
-                                <label class="label">  YouTube: </label>
-                                <label class="input">
-                                    <input type="text" name="contact_social_li" value="<?= (!empty($config['contact_social_li']) ? $config['contact_social_li'] : '')?>">
-                                </label>
-                            </section>
-
-                            <section>
-                                <label class="label">  Instagram: </label>
-                                <label class="input">
-                                    <input type=text name="contact_social_inst" value="<?= (!empty($config['contact_social_inst']) ? $config['contact_social_inst'] : '')?>">
                                 </label>
                             </section>
 

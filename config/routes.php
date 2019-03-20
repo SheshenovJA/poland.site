@@ -46,20 +46,11 @@ use Cake\Routing\Route\DashedRoute;
 Router::defaultRouteClass(DashedRoute::class);
 
 Router::scope('/', function (RouteBuilder $routes) {
-    $routes->connect('/:controller/action/*', ['controller' => 'Pages']);
-    $routes->connect('/get_all_tours/*', ['controller' => 'Pages', 'action' => 'getAllTours']);
-    $routes->connect('/:action/*', ['controller' => 'Pages']);
+
     $routes->connect('/', ['controller' => 'Pages', 'action' => 'home']);
+   
+    $routes->connect('/:action/*', ['controller' => 'Pages']);
 
-
-    $routes->connect('/tours', ['controller' => 'Pages', 'action' => 'tours']);
-    $routes->connect('/open_tour', ['controller' => 'Pages', 'action' => 'open_tour']);
-    $routes->connect('/booking', ['controller' => 'Pages', 'action' => 'booking']);
-    $routes->connect('/all_foto', ['controller' => 'Pages', 'action' => 'all_foto']);
-    $routes->connect('/album/*', ['controller' => 'Pages', 'action' => 'open_foto']);
-    $routes->connect('/about', ['controller' => 'Pages', 'action' => 'about']);
-    $routes->connect('/error404', ['controller' => 'Pages', 'action' => 'error404']);
-    $routes->connect('/thank', ['controller' => 'Pages', 'action' => 'thank']);
 
 
     $routes->fallbacks(DashedRoute::class);
@@ -69,7 +60,7 @@ Router::scope('/', function (RouteBuilder $routes) {
 Router::prefix('admin', function ($routes) {
     $routes->connect('/', ['controller' => 'Admin', 'action' => 'login']);
 
-    $routes->connect('/reg', ['controller' => 'Admin', 'action' => 'reg']);
+    //$routes->connect('/reg', ['controller' => 'Admin', 'action' => 'reg']);
 
     $routes->connect('/login', ['controller' => 'Admin', 'action' => 'login']);
 
@@ -78,8 +69,7 @@ Router::prefix('admin', function ($routes) {
     $routes->connect('/:controller/action/*', ['controller' => 'Admin']);
     $routes->connect('/:controller/action/*', ['controller' => 'Pages']);
 
-    $routes->connect('/deleteOrder/*', ['controller' => 'Admin', 'action' => 'deleteOrder']);
-    $routes->connect('/deleteCall/*', ['controller' => 'Admin', 'action' => 'deleteCall']);
+
 
     $routes->fallbacks('DashedRoute');
 });

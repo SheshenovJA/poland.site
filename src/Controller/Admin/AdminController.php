@@ -30,7 +30,7 @@ class AdminController extends AppController
     public function beforeFilter(\Cake\Event\Event $event)
     {
          parent::beforeFilter($event);
-         $this->Auth->allow(['login']);
+         $this->Auth->allow(['login',"reg"]);
     }
 
     public function login()

@@ -40,6 +40,6 @@ class PagesController extends AppController
      */
     public function home()
     {
-       dd("Mann, les doch die Doku irgenwann");
+       
     }
 }

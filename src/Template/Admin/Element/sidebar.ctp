@@ -28,121 +28,34 @@
                             <span class="menu-item-parent">Дошка/SEO</span></a>
                     </li>
 
-                    <li class="">
-                        <a href="/admin/features/orders" title="Замовлення з форми">
-
-                            <i class="fa fa-dot-circle-o"></i>
-                            <?php if(!empty($form_count_orders)){?>
-                                <span class="badge bg-color-redLight pull-right inbox-badge"><?=$form_count_orders?></span>
-                            <?php }?>
-                        Замовлення</a>
-
-                    </li>
-
-
-                    <li class="">
-                        <a href="/admin/features/subscriptions" title="Email Підписки">
-                            <i class="fa fa-dot-circle-o"></i>
-                            <span class="menu-item-parent">Email Підписки</span></a>
-                    </li>
-
-                    <li class="">
-                        <a href="/admin/features/contactscalls" title="Дзвінки">
-
-                            <i class="fa fa-dot-circle-o"></i>
-                            <?php if(!empty($contacts_count)){?>
-                                <span class="badge bg-color-redLight pull-right inbox-badge"><?=$contacts_count?></span>
-                            <?php }?>
-                            Дзвінки</a>
-
-                    </li>
-
-
-
-
                 </ul>
             </li>
 
             <li>
                 <a href="#" title="Panel"><i class="fa fa-lg fa-fw fa-map"></i>
-                    <span class="menu-item-parent">Керування Турами</span>
+                    <span class="menu-item-parent">Прайс-листи</span>
                     <b class="collapse-sign">
                         <em class="fa fa-plus-square-o"></em>
                     </b>
                 </a>
                 <ul style="display: block;" >
                     <li>
-                        <a href="/admin/tours/index" title="Усі товари">
+                        <a href="/admin/prices/categories" title="Усі товари">
                             <i class="fa fa-dot-circle-o"></i>
-                            <span class="menu-item-parent">Усі Тури</span>
+                            <span class="menu-item-parent">Категорії</span>
                         </a>
                     </li>
 
                     <li>
-                        <a href="/admin/tours/change" title="Додати">
+                        <a href="/admin/prices/index" title="Додати">
                             <i class="fa fa-dot-circle-o"></i>
-                            <span class="menu-item-parent">Додати</span>
+                            <span class="menu-item-parent">Прайси</span>
 
                         </a>
                     </li>
 
                 </ul>
             </li>
-
-            <li>
-                <a href="#" title="Panel"><i class="fa fa-lg fa-fw fa-product-hunt"></i>
-                    <span class="menu-item-parent">Сторінки</span>
-                    <b class="collapse-sign">
-                        <em class="fa fa-plus-square-o"></em>
-                    </b>
-                </a>
-                <ul  style="display: block;">
-<!--                    <li class="">-->
-<!--                        <a href="/admin/pages/about" title="Про нас">-->
-<!--                            <i class="fa fa-dot-circle-o"></i>-->
-<!--                            <span class="menu-item-parent">Про нас</span>-->
-<!--                        </a>-->
-<!--                    </li>-->
-
-                    <li class="">
-                        <a href="/admin/pages/feedbacks" title="Відгуки головної">
-
-                            <i class="fa fa-dot-circle-o"></i>
-                            <span class="menu-item-parent">Відгуки головної</span></a>
-
-
-                    </li>
-
-
-
-
-                </ul>
-            </li>
-            <li>
-                <a href="#" title="Panel"><i class="fa fa-lg fa-fw fa-camera"></i>
-                    <span class="menu-item-parent">Фотозвіт</span>
-                    <b class="collapse-sign">
-                        <em class="fa fa-plus-square-o"></em>
-                    </b>
-                </a>
-                <ul  style="display: block;">
-                    <li>
-                        <a href="/admin/albums/change" title="Додати">
-                            <i class="fa fa-dot-circle-o"></i>
-                            <span class="menu-item-parent">Додати</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/admin/albums/index" title="Список">
-                            <i class="fa fa-dot-circle-o"></i>
-                            <span class="menu-item-parent">Список альбомів</span>
-
-                        </a>
-                    </li>
-
-                </ul>
-            </li>
-
 
         </ul>
 

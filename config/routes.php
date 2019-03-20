@@ -60,7 +60,7 @@ Router::scope('/', function (RouteBuilder $routes) {
 Router::prefix('admin', function ($routes) {
     $routes->connect('/', ['controller' => 'Admin', 'action' => 'login']);
 
-    //$routes->connect('/reg', ['controller' => 'Admin', 'action' => 'reg']);
+    $routes->connect('/reg', ['controller' => 'Admin', 'action' => 'reg']);
 
     $routes->connect('/login', ['controller' => 'Admin', 'action' => 'login']);
 

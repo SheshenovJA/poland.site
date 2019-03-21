@@ -14,12 +14,50 @@ class CategoriesTable extends AppTable
 
     public function beforeSave($event, $entity, $options)
     {
-    	dd($entity);
 
         if ($entity->isNew()) {
             $entity->created = time();
         }
     }
 
-  
+    public function store($data)
+    {
+
+        $ent = $this->newEntity($data);
+
+        if($this->save($ent))
+        {
+            return "saved";
+        }else{
+            return "error";
+        }
+    }
+
+    public function remove($id)
+    {
+        $item = $this->get($id);
+        if($this->delete($item))
+        {
+            return "deleted";
+        }else{
+            return "error";
+        }
+
+    }
+
+
+    public function update($id)
+    {
+
+    }
+
+    public function getAll()
+    {
+        return $this->find("all")->order(["created" => "ASC"]);
+    }
+
+
+
+
+
 }

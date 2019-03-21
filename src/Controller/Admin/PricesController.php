@@ -12,6 +12,7 @@ class PricesController extends AppController
     public function initialize()
     {
         parent::initialize();
+        $this->loadModel("Categories");
     
     }
 
@@ -24,7 +25,9 @@ class PricesController extends AppController
 
     public function categories()
     {
-        
+        $categories = $this->Categories->getAll();
+        $this->set(compact(["categories"]));
+
     }
 
 

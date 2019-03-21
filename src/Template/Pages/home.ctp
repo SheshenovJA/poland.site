@@ -1,276 +1,281 @@
-<?php
-/**
- * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
- * @link          https://cakephp.org CakePHP(tm) Project
- * @since         0.10.0
- * @license       https://opensource.org/licenses/mit-license.php MIT License
- */
-use Cake\Cache\Cache;
-use Cake\Core\Configure;
-use Cake\Core\Plugin;
-use Cake\Datasource\ConnectionManager;
-use Cake\Error\Debugger;
-use Cake\Http\Exception\NotFoundException;
-
-$this->layout = false;
-
-if (!Configure::read('debug')) :
-    throw new NotFoundException(
-        'Please replace src/Template/Pages/home.ctp with your own version or re-enable debug mode.'
-    );
-endif;
-
-$cakeDescription = 'CakePHP: the rapid development PHP framework';
-?>
-<!DOCTYPE html>
-<html>
-<head>
-    <?= $this->Html->charset() ?>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <?= $cakeDescription ?>
-    </title>
-
-    <?= $this->Html->meta('icon') ?>
-    <?= $this->Html->css('base.css') ?>
-    <?= $this->Html->css('style.css') ?>
-    <?= $this->Html->css('home.css') ?>
-    <link href="https://fonts.googleapis.com/css?family=Raleway:500i|Roboto:300,400,700|Roboto+Mono" rel="stylesheet">
-</head>
-<body class="home">
-
-<header class="row">
-    <div class="header-image"><?= $this->Html->image('cake.logo.svg') ?></div>
-    <div class="header-title">
-        <h1>Welcome to CakePHP <?= Configure::version() ?> Red Velvet. Build fast. Grow solid.</h1>
-    </div>
-</header>
-
-<div class="row">
-    <div class="columns large-12">
-        <div class="ctp-warning alert text-center">
-            <p>Please be aware that this page will not be shown if you turn off debug mode unless you replace src/Template/Pages/home.ctp with your own version.</p>
+<section id="home" class="home js-section" data-action="home">
+    <div class="home__main">
+        <div class="container">
+            <h1 class="home__title">
+                Committed to superior
+                quality and results
+                <span>Construction and renovation company</span>
+            </h1>
+            <div class="home__buttons">
+                <a href="" class="btn-orange">Contact us</a>
+                <a href="" class="btn">Price list</a>
+            </div>
         </div>
-        <div id="url-rewriting-warning" class="alert url-rewriting">
-            <ul>
-                <li class="bullet problem">
-                    URL rewriting is not properly configured on your server.<br />
-                    1) <a target="_blank" href="https://book.cakephp.org/3.0/en/installation.html#url-rewriting">Help me configure it</a><br />
-                    2) <a target="_blank" href="https://book.cakephp.org/3.0/en/development/configuration.html#general-configuration">I don't / can't use URL rewriting</a>
+    </div>
+</section>
+
+<section id="why" class="why js-section" data-action="why">
+    <div class="container">
+        <div class="why__main">
+            <h2 class="title why__title js-visibility">
+                <span class="sub-title">WHY WE</span>
+                We Build Your Dream
+            </h2>
+            <div class="row align-center">
+                <div class="col-xl-7">
+                    <p class="why__text">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                        been the industry's standard dummy text ever since the 1500s.
+                    </p>
+                </div>
+            </div>
+            <ul class="why__list">
+                <li class="why__item js-visibility">
+                    <img src="/app/img/engineer.png" alt="" class="why__item__img">
+                    <div class="why__item__name">BEST QUALITY</div>
+                    <p class="why__item__text">
+                        Lorem Ipsum is simply dummy text of the
+                        printing and typesetting industry. Lorem
+                        Ipsum has been the industry's standard.
+                    </p>
+                </li>
+                <li class="why__item js-visibility">
+                    <img src="/app/img/no-entry.png" alt="" class="why__item__img">
+                    <div class="why__item__name">SUSTAINABILITY</div>
+                    <p class="why__item__text">
+                        Lorem Ipsum is simply dummy text of the
+                        printing and typesetting industry. Lorem
+                        Ipsum has been the industry's standard.
+                    </p>
+                </li>
+                <li class="why__item js-visibility">
+                    <img src="/app/img/compass.png" alt="" class="why__item__img">
+                    <div class="why__item__name">STRATEGY</div>
+                    <p class="why__item__text">
+                        Lorem Ipsum is simply dummy text of the
+                        printing and typesetting industry. Lorem
+                        Ipsum has been the industry's standard.
+                    </p>
                 </li>
             </ul>
         </div>
-        <?php Debugger::checkSecurityKeys(); ?>
     </div>
-</div>
+</section>
 
-<div class="row">
-    <div class="columns large-6">
-        <h4>Environment</h4>
-        <ul>
-        <?php if (version_compare(PHP_VERSION, '5.6.0', '>=')) : ?>
-            <li class="bullet success">Your version of PHP is 5.6.0 or higher (detected <?= PHP_VERSION ?>).</li>
-        <?php else : ?>
-            <li class="bullet problem">Your version of PHP is too low. You need PHP 5.6.0 or higher to use CakePHP (detected <?= PHP_VERSION ?>).</li>
-        <?php endif; ?>
-
-        <?php if (extension_loaded('mbstring')) : ?>
-            <li class="bullet success">Your version of PHP has the mbstring extension loaded.</li>
-        <?php else : ?>
-            <li class="bullet problem">Your version of PHP does NOT have the mbstring extension loaded.</li>
-        <?php endif; ?>
-
-        <?php if (extension_loaded('openssl')) : ?>
-            <li class="bullet success">Your version of PHP has the openssl extension loaded.</li>
-        <?php elseif (extension_loaded('mcrypt')) : ?>
-            <li class="bullet success">Your version of PHP has the mcrypt extension loaded.</li>
-        <?php else : ?>
-            <li class="bullet problem">Your version of PHP does NOT have the openssl or mcrypt extension loaded.</li>
-        <?php endif; ?>
-
-        <?php if (extension_loaded('intl')) : ?>
-            <li class="bullet success">Your version of PHP has the intl extension loaded.</li>
-        <?php else : ?>
-            <li class="bullet problem">Your version of PHP does NOT have the intl extension loaded.</li>
-        <?php endif; ?>
-        </ul>
+<section id="services" class="services js-section" data-action="services">
+    <div class="container">
+        <div class="services__main">
+            <h2 class="title services__title js-visibility">
+                <span class="sub-title">OUR SERVICES</span>
+                What We Can Provide
+            </h2>
+            <div class="row align-center">
+                <div class="col-xl-7">
+                    <p class="services__text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        Lorem Ipsum has been the industry's standard dummy text ever</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                    <div class="services__item js-visibility">
+                        <img src="/app/img/item1.png" alt="" class="services__item__img">
+                        <div class="services__item__name">Prace hydrauliczne</div>
+                        <p class="services__item__text">
+                            Z łatwością zadbamy o Państwa przyjemność
+                            z korzystania z ogrodu. Zamontujemy
+                            wszelkie produkty ogrodowe i tarasowe.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                    <div class="services__item js-visibility">
+                        <img src="/app/img/item2.png" alt="" class="services__item__img">
+                        <div class="services__item__name">Prace hydrauliczne</div>
+                        <p class="services__item__text">
+                            Z łatwością zadbamy o Państwa przyjemność
+                            z korzystania z ogrodu. Zamontujemy
+                            wszelkie produkty ogrodowe i tarasowe.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                    <div class="services__item js-visibility">
+                        <img src="/app/img/item3.png" alt="" class="services__item__img">
+                        <div class="services__item__name">Prace hydrauliczne</div>
+                        <p class="services__item__text">
+                            Z łatwością zadbamy o Państwa przyjemność
+                            z korzystania z ogrodu. Zamontujemy
+                            wszelkie produkty ogrodowe i tarasowe.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                    <div class="services__item js-visibility">
+                        <img src="/app/img/item4.png" alt="" class="services__item__img">
+                        <div class="services__item__name">Prace hydrauliczne</div>
+                        <p class="services__item__text">
+                            Z łatwością zadbamy o Państwa przyjemność
+                            z korzystania z ogrodu. Zamontujemy
+                            wszelkie produkty ogrodowe i tarasowe.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                    <div class="services__item js-visibility">
+                        <img src="/app/img/item5.png" alt="" class="services__item__img">
+                        <div class="services__item__name">Prace hydrauliczne</div>
+                        <p class="services__item__text">
+                            Z łatwością zadbamy o Państwa przyjemność
+                            z korzystania z ogrodu. Zamontujemy
+                            wszelkie produkty ogrodowe i tarasowe.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                    <div class="services__item js-visibility">
+                        <img src="/app/img/item6.png" alt="" class="services__item__img">
+                        <div class="services__item__name">Prace hydrauliczne</div>
+                        <p class="services__item__text">
+                            Z łatwością zadbamy o Państwa przyjemność
+                            z korzystania z ogrodu. Zamontujemy
+                            wszelkie produkty ogrodowe i tarasowe.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="columns large-6">
-        <h4>Filesystem</h4>
-        <ul>
-        <?php if (is_writable(TMP)) : ?>
-            <li class="bullet success">Your tmp directory is writable.</li>
-        <?php else : ?>
-            <li class="bullet problem">Your tmp directory is NOT writable.</li>
-        <?php endif; ?>
+</section>
 
-        <?php if (is_writable(LOGS)) : ?>
-            <li class="bullet success">Your logs directory is writable.</li>
-        <?php else : ?>
-            <li class="bullet problem">Your logs directory is NOT writable.</li>
-        <?php endif; ?>
+<section id="reviews" class="reviews">
+    <div class="container">
+        <div class="reviews__main">
+            <h2 class="title">
+                <span class="sub-title">TESTIMONIALS</span>
+                What Our Clients Says About Us
+            </h2>
 
-        <?php $settings = Cache::getConfig('_cake_core_'); ?>
-        <?php if (!empty($settings)) : ?>
-            <li class="bullet success">The <em><?= $settings['className'] ?>Engine</em> is being used for core caching. To change the config edit config/app.php</li>
-        <?php else : ?>
-            <li class="bullet problem">Your cache is NOT working. Please check the settings in config/app.php</li>
-        <?php endif; ?>
-        </ul>
-    </div>
-    <hr />
-</div>
+            <div class="carousel reviews__carousel" data-flickity='{ "groupCells": true }'>
 
-<div class="row">
-    <div class="columns large-6">
-        <h4>Database</h4>
-        <?php
-        try {
-            $connection = ConnectionManager::get('default');
-            $connected = $connection->connect();
-        } catch (Exception $connectionError) {
-            $connected = false;
-            $errorMsg = $connectionError->getMessage();
-            if (method_exists($connectionError, 'getAttributes')) :
-                $attributes = $connectionError->getAttributes();
-                if (isset($errorMsg['message'])) :
-                    $errorMsg .= '<br />' . $attributes['message'];
-                endif;
-            endif;
-        }
-        ?>
-        <ul>
-        <?php if ($connected) : ?>
-            <li class="bullet success">CakePHP is able to connect to the database.</li>
-        <?php else : ?>
-            <li class="bullet problem">CakePHP is NOT able to connect to the database.<br /><?= $errorMsg ?></li>
-        <?php endif; ?>
-        </ul>
-    </div>
-    <div class="columns large-6">
-        <h4>DebugKit</h4>
-        <ul>
-        <?php if (Plugin::isLoaded('DebugKit')) : ?>
-            <li class="bullet success">DebugKit is loaded.</li>
-        <?php else : ?>
-            <li class="bullet problem">DebugKit is NOT loaded. You need to either install pdo_sqlite, or define the "debug_kit" connection name.</li>
-        <?php endif; ?>
-        </ul>
-    </div>
-    <hr />
-</div>
+                <div class="carousel-cell reviews__carousel-cell">
+                    <img src="/app/img/img.png" alt="" class="reviews__img">
+                    <p class="reviews__text">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting
+                        industry. Lorem Ipsum has been the industry's standard
+                        dummy text ever
+                    </p>
+                    <div class="reviews__name">IVAN VAROSH</div>
+                </div>
+                <div class="carousel-cell reviews__carousel-cell">
+                    <img src="/app/img/1.png" alt="" class="reviews__img">
+                    <p class="reviews__text">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting
+                        industry. Lorem Ipsum has been the industry's standard
+                        dummy text ever
+                    </p>
+                    <div class="reviews__name">IVAN VAROSH</div>
+                </div>
+                <div class="carousel-cell reviews__carousel-cell">
+                    <img src="/app/img/3.png" alt="" class="reviews__img">
+                    <p class="reviews__text">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting
+                        industry. Lorem Ipsum has been the industry's standard
+                        dummy text ever
+                    </p>
+                    <div class="reviews__name">IVAN VAROSH</div>
+                </div>
+                <div class="carousel-cell reviews__carousel-cell">
+                    <img src="/app/img/4.png" alt="" class="reviews__img">
+                    <p class="reviews__text">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting
+                        industry. Lorem Ipsum has been the industry's standard
+                        dummy text ever
+                    </p>
+                    <div class="reviews__name">IVAN VAROSH</div>
+                </div>
 
-<div class="row">
-    <div class="columns large-6">
-        <h3>Editing this Page</h3>
-        <ul>
-            <li class="bullet cutlery">To change the content of this page, edit: src/Template/Pages/home.ctp.</li>
-            <li class="bullet cutlery">You can also add some CSS styles for your pages at: webroot/css/.</li>
-        </ul>
-    </div>
-    <div class="columns large-6">
-        <h3>Getting Started</h3>
-        <ul>
-            <li class="bullet book"><a target="_blank" href="https://book.cakephp.org/3.0/en/">CakePHP 3.0 Docs</a></li>
-            <li class="bullet book"><a target="_blank" href="https://book.cakephp.org/3.0/en/tutorials-and-examples/cms/installation.html">The 20 min CMS Tutorial</a></li>
-        </ul>
-    </div>
-</div>
 
-<div class="row">
-    <div class="columns large-12 text-center">
-        <h3 class="more">More about Cake</h3>
-        <p>
-            CakePHP is a rapid development framework for PHP which uses commonly known design patterns like Front Controller and MVC.<br />
-            Our primary goal is to provide a structured framework that enables PHP users at all levels to rapidly develop robust web applications, without any loss to flexibility.
-        </p>
+            </div>
+        </div>
     </div>
-    <hr/>
-</div>
+</section>
 
-<div class="row">
-    <div class="columns large-4">
-        <i class="icon support">P</i>
-        <h3>Help and Bug Reports</h3>
-        <ul>
-            <li class="bullet cutlery">
-                <a href="irc://irc.freenode.net/cakephp">irc.freenode.net #cakephp</a>
-                <ul><li>Live chat about CakePHP</li></ul>
-            </li>
-            <li class="bullet cutlery">
-                <a href="http://cakesf.herokuapp.com/">Slack</a>
-                <ul><li>CakePHP Slack support</li></ul>
-            </li>
-            <li class="bullet cutlery">
-                <a href="https://github.com/cakephp/cakephp/issues">CakePHP Issues</a>
-                <ul><li>CakePHP issues and pull requests</li></ul>
-            </li>
-            <li class="bullet cutlery">
-                <a href="http://discourse.cakephp.org/">CakePHP Forum</a>
-                <ul><li>CakePHP official discussion forum</li></ul>
-            </li>
-        </ul>
-    </div>
-    <div class="columns large-4">
-        <i class="icon docs">r</i>
-        <h3>Docs and Downloads</h3>
-        <ul>
-            <li class="bullet cutlery">
-                <a href="https://api.cakephp.org/3.0/">CakePHP API</a>
-                <ul><li>Quick Reference</li></ul>
-            </li>
-            <li class="bullet cutlery">
-                <a href="https://book.cakephp.org/3.0/en/">CakePHP Documentation</a>
-                <ul><li>Your Rapid Development Cookbook</li></ul>
-            </li>
-            <li class="bullet cutlery">
-                <a href="https://bakery.cakephp.org">The Bakery</a>
-                <ul><li>Everything CakePHP</li></ul>
-            </li>
-            <li class="bullet cutlery">
-                <a href="https://plugins.cakephp.org">CakePHP plugins repo</a>
-                <ul><li>A comprehensive list of all CakePHP plugins created by the community</li></ul>
-            </li>
-            <li class="bullet cutlery">
-                <a href="https://github.com/cakephp/">CakePHP Code</a>
-                <ul><li>For the Development of CakePHP Git repository, Downloads</li></ul>
-            </li>
-            <li class="bullet cutlery">
-                <a href="https://github.com/FriendsOfCake/awesome-cakephp">CakePHP Awesome List</a>
-                <ul><li>A curated list of amazingly awesome CakePHP plugins, resources and shiny things.</li></ul>
-            </li>
-            <li class="bullet cutlery">
-                <a href="https://www.cakephp.org">CakePHP</a>
-                <ul><li>The Rapid Development Framework</li></ul>
-            </li>
-        </ul>
-    </div>
-    <div class="columns large-4">
-        <i class="icon training">s</i>
-        <h3>Training and Certification</h3>
-        <ul>
-            <li class="bullet cutlery">
-                <a href="https://cakefoundation.org/">Cake Software Foundation</a>
-                <ul><li>Promoting development related to CakePHP</li></ul>
-            </li>
-            <li class="bullet cutlery">
-                <a href="https://training.cakephp.org/">CakePHP Training</a>
-                <ul><li>Learn to use the CakePHP framework</li></ul>
-            </li>
-            <li class="bullet cutlery">
-                <a href="https://certification.cakephp.org/">CakePHP Certification</a>
-                <ul><li>Become a certified CakePHP developer</li></ul>
-            </li>
-        </ul>
-    </div>
-</div>
+<section id="work" class="work">
+    <div class="container">
+        <div class="work__main">
+            <h2 class="title">
+                <span class="sub-title">LATEST PROJECTS</span>
+                Recently Finished
+            </h2>
 
-</body>
-</html>
+            <div class="carousel work__carousel" data-flickity='{ "groupCells": true }'>
+
+                <div class="carousel-cell work__carousel-cell">
+                    <div class="work__group">
+                        <div class="work__img work__img9"></div>
+                        <div class="work__img work__img10"></div>
+                        <div class="work__img work__img11"></div>
+                        <div class="work__img work__img12"></div>
+                    </div>
+                </div>
+
+                <div class="carousel-cell work__carousel-cell">
+                    <div class="work__group">
+                        <div class="work__img work__img5"></div>
+                        <div class="work__img work__img6"></div>
+                        <div class="work__img work__img7"></div>
+                        <div class="work__img work__img8"></div>
+                    </div>
+                </div>
+
+                <div class="carousel-cell work__carousel-cell">
+                    <div class="work__group">
+                        <div class="work__img work__img1"></div>
+                        <div class="work__img work__img2"></div>
+                        <div class="work__img work__img3"></div>
+                        <div class="work__img work__img4"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="contact">
+    <div class="container">
+        <div class="contact__main">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 col-xl-7">
+                    <div class="contact__info">
+                        <span class="sub-title">CONTACT US</span>
+                        <h2 class="title">Ready to start?</h2>
+                        <p class="contact__text">
+                            Are you interested in services provided by the best crew in the city?
+                            Just call us and our Project Manager will answer any questions!
+                        </p>
+                        <div class="contact__info__contact">
+                            <div class="contact__info__contact__list">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/>
+                                </svg>
+                                <span>Tel: <a href="">+44 (0) 151 427 3644</a></span>
+                                <span>Tel: <a href="">+44 (0) 151 427 3644</a></span>
+                            </div>
+                            <div class="contact__info__contact__list">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M4,4H20A2,2 0 0,1 22,6V18A2,2 0 0,1 20,20H4C2.89,20 2,19.1 2,18V6C2,4.89 2.89,4 4,4M12,11L20,6H4L12,11M4,18H20V8.37L12,13.36L4,8.37V18Z"/>
+                                </svg>
+                                <span>info@starcruiser.biz</span>
+                                <span>bookings@starcruiser.biz</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">
+                    <img src="/app/img/2s.png" alt="" class="contact__img">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

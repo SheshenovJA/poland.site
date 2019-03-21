@@ -1,0 +1,22 @@
+@import "../tools/variables";
+@import "../tools/mixins";
+
+.btn {
+  @include btn();
+  //color: var(--orange);
+  //&:hover{
+  //  border: 1px solid #fff;
+  //  background: transparent;
+  //}
+}
+.btn-orange {
+  @include btn();
+  background: var(--orange);
+  color: #fff;
+  //&:hover{
+  //  border: 1px solid #fff;
+  //  background: transparent;
+  //}
+}
+
+

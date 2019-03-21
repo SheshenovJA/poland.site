@@ -1,57 +1,88 @@
-<?php
-/**
- * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
- * @link          https://cakephp.org CakePHP(tm) Project
- * @since         0.10.0
- * @license       https://opensource.org/licenses/mit-license.php MIT License
- */
+<!---->
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    --><?//= $this->Html->charset() ?>
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>-->
+<!--        --><?//= $cakeDescription ?><!--:-->
+<!--        --><?//= $this->fetch('title') ?>
+<!--    </title>-->
+<!--    --><?//= $this->Html->meta('icon') ?>
+<!---->
+<!--    --><?//= $this->Html->css('base.css') ?>
+<!--    --><?//= $this->Html->css('style.css') ?>
+<!---->
+<!--    --><?//= $this->fetch('meta') ?>
+<!--    --><?//= $this->fetch('css') ?>
+<!--    --><?//= $this->fetch('script') ?>
+<!--</head>-->
+<!--<body>-->
+<!--    <nav class="top-bar expanded" data-topbar role="navigation">-->
+<!--        <ul class="title-area large-3 medium-4 columns">-->
+<!--            <li class="name">-->
+<!--                <h1><a href="">--><?//= $this->fetch('title') ?><!--</a></h1>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--        <div class="top-bar-section">-->
+<!--            <ul class="right">-->
+<!--                <li><a target="_blank" href="https://book.cakephp.org/3.0/">Documentation</a></li>-->
+<!--                <li><a target="_blank" href="https://api.cakephp.org/3.0/">API</a></li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </nav>-->
+<!--    --><?//= $this->Flash->render() ?>
+<!--    <div class="container clearfix">-->
+<!--        --><?//= $this->fetch('content') ?>
+<!--    </div>-->
+<!--    <footer>-->
+<!--    </footer>-->
+<!--</body>-->
+<!--</html>-->
 
-$cakeDescription = 'CakePHP: the rapid development php framework';
-?>
+
 <!DOCTYPE html>
 <html>
 <head>
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <?= $cakeDescription ?>:
-        <?= $this->fetch('title') ?>
-    </title>
-    <?= $this->Html->meta('icon') ?>
+    <title>OST</title>
 
-    <?= $this->Html->css('base.css') ?>
-    <?= $this->Html->css('style.css') ?>
 
-    <?= $this->fetch('meta') ?>
-    <?= $this->fetch('css') ?>
-    <?= $this->fetch('script') ?>
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,700" rel="stylesheet">    <link rel="icon" type="image/png" sizes="32x32" href="/app/img/32x32.png">
+
+    <meta property="og:image" content="/app/img/og.png">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/app/img/32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/app/img/16.png">
+
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <link rel="stylesheet" href="/app/css/main.css?<?= time() ?>">
+
+
 </head>
 <body>
-    <nav class="top-bar expanded" data-topbar role="navigation">
-        <ul class="title-area large-3 medium-4 columns">
-            <li class="name">
-                <h1><a href=""><?= $this->fetch('title') ?></a></h1>
-            </li>
-        </ul>
-        <div class="top-bar-section">
-            <ul class="right">
-                <li><a target="_blank" href="https://book.cakephp.org/3.0/">Documentation</a></li>
-                <li><a target="_blank" href="https://api.cakephp.org/3.0/">API</a></li>
-            </ul>
-        </div>
-    </nav>
-    <?= $this->Flash->render() ?>
-    <div class="container clearfix">
-        <?= $this->fetch('content') ?>
-    </div>
-    <footer>
-    </footer>
+
+
+<?= $this->element('header') ?>
+<?= $this->fetch('content') ?>
+<?= $this->element('footer') ?>
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+<script src="/app/libs/gsap/TweenMax.min.js"></script>
+
+
+
+<script src="/app/js/main.js"></script>
+<script src="/app/js/animate.js"></script>
+
+
+
+<?= $this->fetch('pageScript'); ?>
 </body>
 </html>
+

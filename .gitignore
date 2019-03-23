@@ -35,8 +35,7 @@ Thumbs.db
 .settings/*
 # JetBrains, aka PHPStorm, IntelliJ IDEA
 .idea/*
-# NetBeans
-nbproject/*
+
 # Visual Studio Code
 .vscode
 # Sass preprocessor

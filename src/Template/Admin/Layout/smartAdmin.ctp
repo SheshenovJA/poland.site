@@ -26,7 +26,7 @@
 
         }
         body.smart-style-6 #logo-group > span#logo:before {
-            content: "РіднаUA" !important;;
+            content: "WebX site" !important;;
             font-size: 18px;
             color: #fff;
             font-weight: 300;
@@ -36,7 +36,7 @@
     </style>
     <?= $this->fetch('pageCss'); ?>
 </head>
-<body class="smart-style-6">
+<body class="smart-style-3">
 <?= $this->element('header') ?>
 
 <?= $this->element('sidebar'); ?>

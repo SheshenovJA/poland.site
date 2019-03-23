@@ -8,14 +8,17 @@ class PricesTable extends AppTable
 {
     public function initialize(array $config)
     {
-        $this->belongsTo("Categories");
+        $this->belongsTo("Categories")
+            ->setForeignKey('category_id');;
+
+       // $this->hasMany("Categories");
 
     }
 
 
     public function beforeSave($event, $entity, $options)
     {
-    	dd($entity);
+    	//dd($entity);
 
         if ($entity->isNew()) {
             $entity->created = time();
@@ -25,9 +28,17 @@ class PricesTable extends AppTable
 
 
 
-    public function store()
+    public function store($data)
     {
-    	# code...
+
+        $ent = $this->newEntity($data);
+        //debug($ent);die;
+        if($this->save($ent))
+        {
+            return "saved";
+        }else{
+            return "error";
+        }
     }
 
     public function update($data)
@@ -35,14 +46,23 @@ class PricesTable extends AppTable
     	# code...
     }
 
-    public function remove($data)
+    public function remove($id)
     {
-    	# code...
+        $item = $this->get($id);
+
+        if($this->delete($item))
+        {
+            return "deleted";
+        }else{
+            return "error";
+        }
     }
 
     public function getDataToAdmin()
     {
-    		//sort asc
+        return $this->find("all")
+            ->contain('Categories')
+            ->order(["Categories.id" => "ASC"]);
     }
 
     public function getDataToFront()

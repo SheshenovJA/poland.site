@@ -8,7 +8,8 @@ class CategoriesTable extends AppTable
 {
     public function initialize(array $config)
     {
-        $this->hasMany("Prices");
+        $this->hasMany("Prices")
+            ->setForeignKey('category_id');
 
     }
 

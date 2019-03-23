@@ -12,12 +12,14 @@ class CategoriesController extends AppController
     public function initialize()
     {
         parent::initialize();
+        $this->loadModel('Prices');
 
     }
 
 
     public function index()
     {
+
 
     }
 

@@ -8,7 +8,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Редагувати Галузь</h4>
+                <h4 class="modal-title">Редагувати</h4>
             </div>
             <div class="modal-body">
                 <form action="/admin/categories/addCategory" method="post" enctype="multipart/form-data">

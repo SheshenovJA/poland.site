@@ -57,6 +57,15 @@ class CategoriesTable extends AppTable
         return $this->find("all")->order(["created" => "ASC"]);
     }
 
+    public function getAllToFront()
+    {
+        return $this->find("all")
+            ->contain('Prices', function($q1){
+                return $q1->find('all')->order(['created' => 'ASC']);
+            })
+            ->order(["Categories.created" => "ASC"]);
+    }
+
 
 
 

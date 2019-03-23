@@ -56,6 +56,8 @@ class PagesController extends AppController
 
     public function price()
     {
-
+        $prices_list = $this->Categories->getAllToFront();
+        //debug($prices_list->toArray());die;
+        $this->set(compact(['prices_list']));
     }
 }

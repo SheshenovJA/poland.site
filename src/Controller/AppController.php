@@ -52,4 +52,14 @@ class AppController extends Controller
          */
         //$this->loadComponent('Security');
     }
+
+    public function beforeRender(Event $event)
+    {
+
+        $this->loadModel('Configs');
+        $contacts = $this->Configs->getConfigs();
+        // dd($contacts);
+        $this->set(compact('contacts'));
+
+    }
 }

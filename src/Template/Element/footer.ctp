@@ -19,7 +19,7 @@
                 </li>
             </ul>
             <div class="footer__soc">
-                <a href="" class="footer__soc__item">
+                <a href="<?= (!empty($contacts['contact_social_fb']) ? $contacts['contact_social_fb'] : '') ?>" target="_blank" class="footer__soc__item">
                     <svg viewBox="0 0 24 24">
                         <path d="M17,2V2H17V6H15C14.31,6 14,6.81 14,7.5V10H14L17,10V14H14V22H10V14H7V10H10V6A4,4 0 0,1 14,2H17Z"></path>
                     </svg>

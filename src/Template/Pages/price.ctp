@@ -14,85 +14,38 @@
                         We would like our clients to know what to expect, so we have prepared
                         an approximate price list of our services.
                     </p>
-
+                    <?php if (!empty($prices_list)){?>
                     <div class="price__panel">
-
+                        <?php foreach ($prices_list as $price){?>
                         <div class="panel">
                             <div class="panel__top js-panel-top">
-                                Suche zabudowy z płyt g-k
+                                <?= $price->name ?>
                             </div>
                             <div class="panel__bottom js-panel-bottom" style="display: none">
+                                <?php if (!empty($price->prices)){?>
+                                  <?php foreach ($price->prices as $list){?>
                                 <div class="panel__bottom__group">
                                     <span class="panel__bottom__name">
-                                        Wykonanie gładzi gipsowych - trzykrotne przetarcie gipsem ze szlifowaniem, wraz z materiałem(Knauf,                              Cekol, Megaron)
+                                         <?= $list->name ?>
                                     </span>
                                     <span class="panel__bottom__sq">
-                                         m2
+                                        <?= $list->qnt ?>
                                     </span>
                                     <span class="panel__bottom__price">
-                                    25,00 zł
+                                         <?= $list->price ?>
                                      </span>
                                 </div>
-                                <div class="panel__bottom__group">
-                                    <span class="panel__bottom__name">
-                                        Wykonanie gładzi gipsowych - trzykrotne przetarcie gipsem ze szlifowaniem, wraz z materiałem(Knauf,                              Cekol, Megaron)
-                                    </span>
-                                    <span class="panel__bottom__sq">
-                                         m2
-                                    </span>
-                                    <span class="panel__bottom__price">
-                                    25,00 zł
-                                     </span>
-                                </div>
-                                <div class="panel__bottom__group">
-                                    <span class="panel__bottom__name">
-                                                                                Wykonanie gładzi gipsowych - trzykrotne przetarcie gipsem ze szlifowaniem, wraz z materiałem(Knauf,                              Cekol, Megaron)
-                                        Wykonanie gładzi gipsowych - trzykrotne przetarcie gipsem ze szlifowaniem, wraz z materiałem(Knauf,                              Cekol, Megaron)
-                                    </span>
-                                    <span class="panel__bottom__sq">
-                                         m2
-                                    </span>
-                                    <span class="panel__bottom__price">
-                                    25,00 zł
-                                     </span>
-                                </div>
+                                    <?php }?>
 
-                            </div>
-                        </div>
-
-                        <div class="panel">
-                            <div class="panel__top js-panel-top">
-                                Suche zabudowy z płyt g-k
-                            </div>
-                            <div class="panel__bottom js-panel-bottom" style="display: none">
-                                <div class="panel__bottom__group">
-                                    <span class="panel__bottom__name">
-                                        Wykonanie gładzi gipsowych - trzykrotne przetarcie gipsem ze szlifowaniem, wraz z materiałem(Knauf,                              Cekol, Megaron)
-                                    </span>
-                                    <span class="panel__bottom__sq">
-                                         m2
-                                    </span>
-                                    <span class="panel__bottom__price">
-                                    25,00 zł
-                                     </span>
-                                </div>
-                                <div class="panel__bottom__group">
-                                    <span class="panel__bottom__name">
-                                        Wykonanie gładzi gipsowych - trzykrotne przetarcie gipsem ze szlifowaniem, wraz z materiałem(Knauf,                              Cekol, Megaron)
-                                    </span>
-                                    <span class="panel__bottom__sq">
-                                         m2
-                                    </span>
-                                    <span class="panel__bottom__price">
-                                    25,00 zł
-                                     </span>
-                                </div>
+                                <?php }?>
 
 
                             </div>
                         </div>
+                        <?php }?>
 
                     </div>
+                    <?php }?>
                 </div>
             </div>
         </div>

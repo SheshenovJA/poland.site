@@ -42,7 +42,7 @@ class IncludeSystemSniff extends AbstractScopeSniff
 
 
     /**
-     * Constructs an AbstractScopeSniff.
+     * Constructs a Squiz_Sniffs_Scope_MethodScopeSniff.
      */
     public function __construct()
     {

@@ -1,4 +1,5 @@
 <?php
+/* @codingStandardsIgnoreFile */
 
 namespace PHP_CodeSniffer\Tests\Core\File;
 

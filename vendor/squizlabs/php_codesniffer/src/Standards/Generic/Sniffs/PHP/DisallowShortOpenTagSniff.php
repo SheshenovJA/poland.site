@@ -29,7 +29,7 @@ class DisallowShortOpenTagSniff implements Sniff
             T_OPEN_TAG_WITH_ECHO,
         ];
 
-        $shortOpenTags = (bool) ini_get('short_open_tag');
+        $shortOpenTags = (boolean) ini_get('short_open_tag');
         if ($shortOpenTags === false) {
             $targets[] = T_INLINE_HTML;
         }

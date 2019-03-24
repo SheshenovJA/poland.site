@@ -27,7 +27,7 @@ class CSS extends PHP
      * @param string                  $eolChar The EOL char used in the content.
      *
      * @return void
-     * @throws \PHP_CodeSniffer\Exceptions\TokenizerException If the file appears to be minified.
+     * @throws TokenizerException If the file appears to be minified.
      */
     public function __construct($content, Config $config, $eolChar='\n')
     {
@@ -35,7 +35,7 @@ class CSS extends PHP
             throw new TokenizerException('File appears to be minified and cannot be processed');
         }
 
-        parent::__construct($content, $config, $eolChar);
+        return parent::__construct($content, $config, $eolChar);
 
     }//end __construct()
 

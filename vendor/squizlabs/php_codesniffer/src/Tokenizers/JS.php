@@ -257,7 +257,7 @@ class JS extends Tokenizer
      * @param string                  $eolChar The EOL char used in the content.
      *
      * @return void
-     * @throws \PHP_CodeSniffer\Exceptions\TokenizerException If the file appears to be minified.
+     * @throws TokenizerException If the file appears to be minified.
      */
     public function __construct($content, Config $config, $eolChar='\n')
     {
@@ -265,7 +265,7 @@ class JS extends Tokenizer
             throw new TokenizerException('File appears to be minified and cannot be processed');
         }
 
-        parent::__construct($content, $config, $eolChar);
+        return parent::__construct($content, $config, $eolChar);
 
     }//end __construct()
 
@@ -446,7 +446,14 @@ class JS extends Tokenizer
             // Special case for T_DIVIDE which can actually be
             // the start of a regular expression.
             if ($buffer === $char && $char === '/' && $chars[($i + 1)] !== '*') {
-                $regex = $this->getRegexToken($i, $string, $chars, $tokens);
+                $regex = $this->getRegexToken(
+                    $i,
+                    $string,
+                    $chars,
+                    $tokens,
+                    $this->eolChar
+                );
+
                 if ($regex !== null) {
                     $tokens[] = [
                         'code'    => T_REGULAR_EXPRESSION,
@@ -825,7 +832,7 @@ class JS extends Tokenizer
                 $numLines   = count($tokenLines);
 
                 for ($i = 0; $i < $numLines; $i++) {
-                    $newToken = ['content' => $tokenLines[$i]];
+                    $newToken['content'] = $tokenLines[$i];
                     if ($i === ($numLines - 1)) {
                         if ($tokenLines[$i] === '') {
                             break;
@@ -911,7 +918,7 @@ class JS extends Tokenizer
      * @param string $chars  An array of characters being tokenized.
      * @param string $tokens The current array of tokens found in the string.
      *
-     * @return array<string, string>|null
+     * @return void
      */
     public function getRegexToken($char, $string, $chars, $tokens)
     {
@@ -1104,8 +1111,8 @@ class JS extends Tokenizer
                 && isset($this->tokens[$i]['scope_condition']) === false
                 && isset($this->tokens[$i]['bracket_closer']) === true
             ) {
-                $condition = $this->tokens[$i]['conditions'];
-                $condition = end($condition);
+                $condition = end($this->tokens[$i]['conditions']);
+                reset($this->tokens[$i]['conditions']);
                 if ($condition === T_CLASS) {
                     // Possibly an ES6 method. To be classified as one, the previous
                     // non-empty tokens need to be a set of parenthesis, and then a string

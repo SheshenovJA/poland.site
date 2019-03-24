@@ -74,18 +74,9 @@ class ForbiddenFunctionsSniff implements Sniff
 
         // If we are not pattern matching, we need to work out what
         // tokens to listen for.
-        $hasHaltCompiler = false;
-        $string          = '<?php ';
+        $string = '<?php ';
         foreach ($this->forbiddenFunctionNames as $name) {
-            if ($name === '__halt_compiler') {
-                $hasHaltCompiler = true;
-            } else {
-                $string .= $name.'();';
-            }
-        }
-
-        if ($hasHaltCompiler === true) {
-            $string .= '__halt_compiler();';
+            $string .= $name.'();';
         }
 
         $register = [];
@@ -182,7 +173,7 @@ class ForbiddenFunctionsSniff implements Sniff
             // Remove the pattern delimiters and modifier.
             $pattern = substr($pattern, 1, -2);
         } else {
-            if (in_array($function, $this->forbiddenFunctionNames, true) === false) {
+            if (in_array($function, $this->forbiddenFunctionNames) === false) {
                 return;
             }
         }//end if

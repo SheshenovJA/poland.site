@@ -22,27 +22,54 @@ use Cake\Routing\RouteBuilder;
 use Cake\Routing\Router;
 use Cake\Routing\Route\DashedRoute;
 
-
+/**
+ * The default class to use for all routes
+ *
+ * The following route classes are supplied with CakePHP and are appropriate
+ * to set as the default:
+ *
+ * - Route
+ * - InflectedRoute
+ * - DashedRoute
+ *
+ * If no call is made to `Router::defaultRouteClass()`, the class used is
+ * `Route` (`Cake\Routing\Route\Route`)
+ *
+ * Note that `Route` does not do any inflections on URLs which will result in
+ * inconsistently cased URLs when used with `:plugin`, `:controller` and
+ * `:action` markers.
+ *
+ * Cache: Routes are cached to improve performance, check the RoutingMiddleware
+ * constructor in your `src/Application.php` file to change this behavior.
+ *
+ */
 Router::defaultRouteClass(DashedRoute::class);
 
 Router::scope('/', function (RouteBuilder $routes) {
-    // Register scoped middleware for in scopes.
-    $routes->registerMiddleware('csrf', new CsrfProtectionMiddleware([
-        'httpOnly' => true
-    ]));
+
+    $routes->connect('/', ['controller' => 'Pages', 'action' => 'home']);
+   
+    $routes->connect('/:action/*', ['controller' => 'Pages']);
 
 
-    $routes->applyMiddleware('csrf');
-
-
-    $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
-    $routes->connect('/price', ['controller' => 'Pages', 'action' => 'price']);
-
-
-
-    $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
 
     $routes->fallbacks(DashedRoute::class);
 });
 
 
+Router::prefix('admin', function ($routes) {
+    $routes->connect('/', ['controller' => 'Admin', 'action' => 'login']);
+
+    $routes->connect('/reg', ['controller' => 'Admin', 'action' => 'reg']);
+
+    $routes->connect('/login', ['controller' => 'Admin', 'action' => 'login']);
+
+    $routes->connect('/:action', ['controller' => 'Admin']);
+
+    $routes->connect('/:controller/action/*', ['controller' => 'Admin']);
+    $routes->connect('/:controller/action/*', ['controller' => 'Pages']);
+
+
+
+    $routes->fallbacks('DashedRoute');
+});

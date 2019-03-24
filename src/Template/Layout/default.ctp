@@ -4,12 +4,24 @@
 <head>
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OST</title>
-
+    <title><?= (!empty($this->fetch('pageTitle'))) ? $this->fetch('pageTitle') : 'OST Company' ?></title>
 
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,700" rel="stylesheet">    <link rel="icon" type="image/png" sizes="32x32" href="/app/img/32x32.png">
 
-    <meta property="og:image" content="/app/img/og.png">
+    <m
+    <?php if(!empty($this->fetch('pageSeo'))) {
+        echo $this->fetch('pageSeo');
+    }else {
+        ?>
+        <meta property="og:title" content="<?= (!empty($contacts['page_seo_title']) ? $contacts['page_seo_title'] : '') ?>">
+
+        <meta property="og:url" content="<?=  $sec.DOMAIN ?>">
+
+        <meta property="og:image" content="/app/img/og.png">
+        <meta property="og:description" content="<?= (!empty($contacts['page_seo_desc']) ? $contacts['page_seo_desc'] : '') ?>">
+        <meta name="description" content="<?= (!empty($contacts['page_seo_desc']) ? $contacts['page_seo_desc'] : '') ?>">
+        <meta name="keywords" content="<?= (!empty($contacts['page_seo_keys']) ? $contacts['page_seo_keys'] : '') ?>" >
+    <?php } ?>
 
     <link rel="icon" type="image/png" sizes="32x32" href="/app/img/32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/app/img/16.png">

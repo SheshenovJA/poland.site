@@ -59,7 +59,16 @@ class AppController extends Controller
         $this->loadModel('Configs');
         $contacts = $this->Configs->getConfigs();
         // dd($contacts);
-        $this->set(compact('contacts'));
+        $is_secure =  $this->request->is('ssl');
+
+        if($is_secure)
+        {
+            $sec = 'https://';
+        }else{
+            $sec = 'http://';
+        }
+        //dd($sec);
+        $this->set(compact(['contacts', 'sec']));
 
     }
 }

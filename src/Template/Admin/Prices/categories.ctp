@@ -442,7 +442,7 @@
                 {
                     visible: true,
                     orderable: false,
-                    targets: [1, 2, 3, 4, 5, 6]
+                    targets: [1, 2]
                 }
             ],
             rowReorder: true,

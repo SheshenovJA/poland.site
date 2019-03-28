@@ -8489,3 +8489,138 @@ Request URL: /favicon.ico
 
 2019-03-23 15:55:14 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
 2019-03-23 15:56:34 Warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2019-03-24 11:00:35 Warning: DebugKit is disabling itself as your host `poland.site` is not in the known safe list of top-level-domains (localhost, invalid, test, example, local). If you would like to force DebugKit on use the `DebugKit.forceEnable` Configure option.
+2019-03-24 11:00:35 Error: [PDOException] SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+#0 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Database\Driver.php(92): PDO->__construct('mysql:host=loca...', 'root', '744522', Array)
+#1 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Database\Driver\Mysql.php(106): Cake\Database\Driver->_connect('mysql:host=loca...', Array)
+#2 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Database\Schema\BaseSchema.php(45): Cake\Database\Driver\Mysql->connect()
+#3 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Database\Dialect\MysqlDialectTrait.php(63): Cake\Database\Schema\BaseSchema->__construct(Object(Cake\Database\Driver\Mysql))
+#4 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(52): Cake\Database\Driver\Mysql->schemaDialect()
+#5 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(42): Cake\Database\Schema\Collection->__construct(Object(Cake\Database\Connection))
+#6 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Database\Connection.php(391): Cake\Database\Schema\CachedCollection->__construct(Object(Cake\Database\Connection), true)
+#7 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\ORM\Table.php(554): Cake\Database\Connection->getSchemaCollection()
+#8 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\ORM\Query.php(269): Cake\ORM\Table->getSchema()
+#9 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\ORM\Query.php(167): Cake\ORM\Query->addDefaultTypes(Object(App\Model\Table\ConfigsTable))
+#10 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\ORM\Table.php(1765): Cake\ORM\Query->__construct(Object(Cake\Database\Connection), Object(App\Model\Table\ConfigsTable))
+#11 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\ORM\Table.php(1357): Cake\ORM\Table->query()
+#12 E:\openSer\OSPanel\domains\poland.site\src\Model\Table\ConfigsTable.php(27): Cake\ORM\Table->find('all')
+#13 E:\openSer\OSPanel\domains\poland.site\src\Controller\AppController.php(60): App\Model\Table\ConfigsTable->getConfigs()
+#14 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Event\EventManager.php(353): App\Controller\AppController->beforeRender(Object(Cake\Event\Event))
+#15 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Event\EventManager.php(330): Cake\Event\EventManager->_callListener(Array, Object(Cake\Event\Event))
+#16 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Event\EventDispatcherTrait.php(114): Cake\Event\EventManager->dispatch(Object(Cake\Event\Event))
+#17 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Controller\Controller.php(778): Cake\Controller\Controller->dispatchEvent('Controller.befo...')
+#18 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(126): Cake\Controller\Controller->render()
+#19 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(94): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\PagesController))
+#20 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Http\BaseApplication.php(235): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#22 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(162): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#23 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#24 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#25 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#26 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(96): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#27 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#28 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#29 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Http\Server.php(98): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#30 E:\openSer\OSPanel\domains\poland.site\www\index.php(37): Cake\Http\Server->run()
+#31 {main}
+Request URL: /
+
+
+2019-03-24 11:01:32 Warning: DebugKit is disabling itself as your host `poland.site` is not in the known safe list of top-level-domains (localhost, invalid, test, example, local). If you would like to force DebugKit on use the `DebugKit.forceEnable` Configure option.
+2019-03-24 11:01:32 Error: [PDOException] SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+#0 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Database\Driver.php(92): PDO->__construct('mysql:host=loca...', 'root', '744522', Array)
+#1 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Database\Driver\Mysql.php(106): Cake\Database\Driver->_connect('mysql:host=loca...', Array)
+#2 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Database\Schema\BaseSchema.php(45): Cake\Database\Driver\Mysql->connect()
+#3 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Database\Dialect\MysqlDialectTrait.php(63): Cake\Database\Schema\BaseSchema->__construct(Object(Cake\Database\Driver\Mysql))
+#4 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(52): Cake\Database\Driver\Mysql->schemaDialect()
+#5 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(42): Cake\Database\Schema\Collection->__construct(Object(Cake\Database\Connection))
+#6 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Database\Connection.php(391): Cake\Database\Schema\CachedCollection->__construct(Object(Cake\Database\Connection), true)
+#7 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\ORM\Table.php(554): Cake\Database\Connection->getSchemaCollection()
+#8 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\ORM\Query.php(269): Cake\ORM\Table->getSchema()
+#9 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\ORM\Query.php(167): Cake\ORM\Query->addDefaultTypes(Object(App\Model\Table\ConfigsTable))
+#10 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\ORM\Table.php(1765): Cake\ORM\Query->__construct(Object(Cake\Database\Connection), Object(App\Model\Table\ConfigsTable))
+#11 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\ORM\Table.php(1357): Cake\ORM\Table->query()
+#12 E:\openSer\OSPanel\domains\poland.site\src\Model\Table\ConfigsTable.php(27): Cake\ORM\Table->find('all')
+#13 E:\openSer\OSPanel\domains\poland.site\src\Controller\AppController.php(60): App\Model\Table\ConfigsTable->getConfigs()
+#14 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Event\EventManager.php(353): App\Controller\AppController->beforeRender(Object(Cake\Event\Event))
+#15 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Event\EventManager.php(330): Cake\Event\EventManager->_callListener(Array, Object(Cake\Event\Event))
+#16 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Event\EventDispatcherTrait.php(114): Cake\Event\EventManager->dispatch(Object(Cake\Event\Event))
+#17 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Controller\Controller.php(778): Cake\Controller\Controller->dispatchEvent('Controller.befo...')
+#18 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(126): Cake\Controller\Controller->render()
+#19 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(94): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\PagesController))
+#20 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Http\BaseApplication.php(235): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#22 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(162): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#23 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#24 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#25 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#26 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(96): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#27 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#28 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#29 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Http\Server.php(98): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#30 E:\openSer\OSPanel\domains\poland.site\www\index.php(37): Cake\Http\Server->run()
+#31 {main}
+Request URL: /
+
+
+2019-03-24 11:01:33 Warning: DebugKit is disabling itself as your host `poland.site` is not in the known safe list of top-level-domains (localhost, invalid, test, example, local). If you would like to force DebugKit on use the `DebugKit.forceEnable` Configure option.
+2019-03-24 11:01:33 Error: [PDOException] SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+#0 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Database\Driver.php(92): PDO->__construct('mysql:host=loca...', 'root', '744522', Array)
+#1 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Database\Driver\Mysql.php(106): Cake\Database\Driver->_connect('mysql:host=loca...', Array)
+#2 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Database\Schema\BaseSchema.php(45): Cake\Database\Driver\Mysql->connect()
+#3 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Database\Dialect\MysqlDialectTrait.php(63): Cake\Database\Schema\BaseSchema->__construct(Object(Cake\Database\Driver\Mysql))
+#4 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(52): Cake\Database\Driver\Mysql->schemaDialect()
+#5 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(42): Cake\Database\Schema\Collection->__construct(Object(Cake\Database\Connection))
+#6 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Database\Connection.php(391): Cake\Database\Schema\CachedCollection->__construct(Object(Cake\Database\Connection), true)
+#7 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\ORM\Table.php(554): Cake\Database\Connection->getSchemaCollection()
+#8 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\ORM\Query.php(269): Cake\ORM\Table->getSchema()
+#9 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\ORM\Query.php(167): Cake\ORM\Query->addDefaultTypes(Object(App\Model\Table\ConfigsTable))
+#10 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\ORM\Table.php(1765): Cake\ORM\Query->__construct(Object(Cake\Database\Connection), Object(App\Model\Table\ConfigsTable))
+#11 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\ORM\Table.php(1357): Cake\ORM\Table->query()
+#12 E:\openSer\OSPanel\domains\poland.site\src\Model\Table\ConfigsTable.php(27): Cake\ORM\Table->find('all')
+#13 E:\openSer\OSPanel\domains\poland.site\src\Controller\AppController.php(60): App\Model\Table\ConfigsTable->getConfigs()
+#14 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Event\EventManager.php(353): App\Controller\AppController->beforeRender(Object(Cake\Event\Event))
+#15 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Event\EventManager.php(330): Cake\Event\EventManager->_callListener(Array, Object(Cake\Event\Event))
+#16 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Event\EventDispatcherTrait.php(114): Cake\Event\EventManager->dispatch(Object(Cake\Event\Event))
+#17 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Controller\Controller.php(778): Cake\Controller\Controller->dispatchEvent('Controller.befo...')
+#18 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(126): Cake\Controller\Controller->render()
+#19 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(94): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\PagesController))
+#20 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Http\BaseApplication.php(235): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#22 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(162): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#23 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#24 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#25 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#26 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(96): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#27 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#28 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#29 E:\openSer\OSPanel\domains\poland.site\vendor\cakephp\cakephp\src\Http\Server.php(98): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#30 E:\openSer\OSPanel\domains\poland.site\www\index.php(37): Cake\Http\Server->run()
+#31 {main}
+Request URL: /
+
+
+2019-03-24 11:01:39 Warning: DebugKit is disabling itself as your host `poland.site` is not in the known safe list of top-level-domains (localhost, invalid, test, example, local). If you would like to force DebugKit on use the `DebugKit.forceEnable` Configure option.
+2019-03-24 11:01:47 Warning: DebugKit is disabling itself as your host `poland.site` is not in the known safe list of top-level-domains (localhost, invalid, test, example, local). If you would like to force DebugKit on use the `DebugKit.forceEnable` Configure option.
+2019-03-24 11:01:55 Warning: DebugKit is disabling itself as your host `poland.site` is not in the known safe list of top-level-domains (localhost, invalid, test, example, local). If you would like to force DebugKit on use the `DebugKit.forceEnable` Configure option.
+2019-03-24 11:02:01 Warning: DebugKit is disabling itself as your host `poland.site` is not in the known safe list of top-level-domains (localhost, invalid, test, example, local). If you would like to force DebugKit on use the `DebugKit.forceEnable` Configure option.
+2019-03-24 11:02:02 Warning: DebugKit is disabling itself as your host `poland.site` is not in the known safe list of top-level-domains (localhost, invalid, test, example, local). If you would like to force DebugKit on use the `DebugKit.forceEnable` Configure option.
+2019-03-24 11:02:10 Warning: DebugKit is disabling itself as your host `poland.site` is not in the known safe list of top-level-domains (localhost, invalid, test, example, local). If you would like to force DebugKit on use the `DebugKit.forceEnable` Configure option.
+2019-03-24 11:02:10 Warning: DebugKit is disabling itself as your host `poland.site` is not in the known safe list of top-level-domains (localhost, invalid, test, example, local). If you would like to force DebugKit on use the `DebugKit.forceEnable` Configure option.
+2019-03-24 14:30:38 Warning: DebugKit is disabling itself as your host `poland.site` is not in the known safe list of top-level-domains (localhost, invalid, test, example, local). If you would like to force DebugKit on use the `DebugKit.forceEnable` Configure option.
+2019-03-24 14:30:41 Warning: DebugKit is disabling itself as your host `poland.site` is not in the known safe list of top-level-domains (localhost, invalid, test, example, local). If you would like to force DebugKit on use the `DebugKit.forceEnable` Configure option.
+2019-03-24 14:30:51 Warning: DebugKit is disabling itself as your host `poland.site` is not in the known safe list of top-level-domains (localhost, invalid, test, example, local). If you would like to force DebugKit on use the `DebugKit.forceEnable` Configure option.
+2019-03-24 14:32:00 Warning: DebugKit is disabling itself as your host `poland.site` is not in the known safe list of top-level-domains (localhost, invalid, test, example, local). If you would like to force DebugKit on use the `DebugKit.forceEnable` Configure option.
+2019-03-24 14:32:01 Warning: DebugKit is disabling itself as your host `poland.site` is not in the known safe list of top-level-domains (localhost, invalid, test, example, local). If you would like to force DebugKit on use the `DebugKit.forceEnable` Configure option.
+2019-03-24 14:32:32 Warning: DebugKit is disabling itself as your host `poland.site` is not in the known safe list of top-level-domains (localhost, invalid, test, example, local). If you would like to force DebugKit on use the `DebugKit.forceEnable` Configure option.
+2019-03-24 14:33:04 Warning: DebugKit is disabling itself as your host `poland.site` is not in the known safe list of top-level-domains (localhost, invalid, test, example, local). If you would like to force DebugKit on use the `DebugKit.forceEnable` Configure option.
+2019-03-24 14:33:04 Warning: DebugKit is disabling itself as your host `poland.site` is not in the known safe list of top-level-domains (localhost, invalid, test, example, local). If you would like to force DebugKit on use the `DebugKit.forceEnable` Configure option.
+2019-03-24 14:33:25 Warning: DebugKit is disabling itself as your host `poland.site` is not in the known safe list of top-level-domains (localhost, invalid, test, example, local). If you would like to force DebugKit on use the `DebugKit.forceEnable` Configure option.
+2019-03-24 14:33:25 Warning: DebugKit is disabling itself as your host `poland.site` is not in the known safe list of top-level-domains (localhost, invalid, test, example, local). If you would like to force DebugKit on use the `DebugKit.forceEnable` Configure option.
+2019-03-24 14:34:14 Warning: DebugKit is disabling itself as your host `poland.site` is not in the known safe list of top-level-domains (localhost, invalid, test, example, local). If you would like to force DebugKit on use the `DebugKit.forceEnable` Configure option.
+2019-03-24 14:34:18 Warning: DebugKit is disabling itself as your host `poland.site` is not in the known safe list of top-level-domains (localhost, invalid, test, example, local). If you would like to force DebugKit on use the `DebugKit.forceEnable` Configure option.
+2019-03-24 14:34:47 Warning: DebugKit is disabling itself as your host `poland.site` is not in the known safe list of top-level-domains (localhost, invalid, test, example, local). If you would like to force DebugKit on use the `DebugKit.forceEnable` Configure option.
+2019-03-24 14:34:48 Warning: DebugKit is disabling itself as your host `poland.site` is not in the known safe list of top-level-domains (localhost, invalid, test, example, local). If you would like to force DebugKit on use the `DebugKit.forceEnable` Configure option.
+2019-03-24 14:34:48 Warning: DebugKit is disabling itself as your host `poland.site` is not in the known safe list of top-level-domains (localhost, invalid, test, example, local). If you would like to force DebugKit on use the `DebugKit.forceEnable` Configure option.
+2019-03-24 14:34:48 Warning: DebugKit is disabling itself as your host `poland.site` is not in the known safe list of top-level-domains (localhost, invalid, test, example, local). If you would like to force DebugKit on use the `DebugKit.forceEnable` Configure option.
+2019-03-24 14:34:52 Warning: DebugKit is disabling itself as your host `poland.site` is not in the known safe list of top-level-domains (localhost, invalid, test, example, local). If you would like to force DebugKit on use the `DebugKit.forceEnable` Configure option.
